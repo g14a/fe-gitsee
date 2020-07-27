@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
+import Axios from 'axios';
 
 class UserSearchForm extends Component {
 
@@ -12,8 +13,17 @@ class UserSearchForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const username = this.state
+        const username = this.state.username
         console.log("username is", username)
+
+        Axios.get("http://localhost:8000/user/" + username)
+        .then(response => {
+            console.log(response.data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
     }
 
     handleInputChange = (event) => {
