@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import UserSearchFrom from './components/SearchField';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserSearchFrom />
+      
+      <Footer />
     </div>
   );
+}
+
+function Footer() {
+  return (
+    <footer className="footer" style={{color: "white", marginTop: '30%'}}>
+      <p>Built with Golang Github API and React JS. Source is available on <a href="https://github.com/g14a/gitsee" style={{color: 'white'}}>Github</a> </p>
+    </footer>
+  )
 }
 
 export default App;
