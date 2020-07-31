@@ -1,15 +1,18 @@
 import React from 'react';
 import './App.css';
-import UserSearchFrom from './components/SearchField';
-import ReactNotification from 'react-notifications-component'
+// import UserSearchFrom from './components/SearchField';
+// import ReactNotification from 'react-notifications-component'
+import PageComponent from './components/PageComponent';
 
 function App() {
   return (
     <div className="App">
-      <ReactNotification />
+      <PageComponent />
+
+      {/* <ReactNotification />
       <UserSearchFrom />
 
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
