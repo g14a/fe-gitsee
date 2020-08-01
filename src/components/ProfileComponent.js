@@ -1,12 +1,32 @@
 import React, { Component } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import Axios from 'axios';
 
 class ProfileComponent extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: '',
+    }
+  }
+
+  componentDidMount() {
+    Axios.get("http://localhost:8000/user/reisub0")
+    .then(response => {
+      this.setState({
+        data: response.data
+      })
+    })
+  }
+
   render() {
     return (
       <Card
         style={{
-          width: "16rem",
+          width: "15rem",
           backgroundColor: "#121212",
           margin: "0 auto",
           marginTop: "10vh"
@@ -14,17 +34,21 @@ class ProfileComponent extends Component {
       >
         <Card.Img
           variant="top"
-          src="https://avatars3.githubusercontent.com/u/17702388?u=9c7235b6f5909386ad20945df7414f88246fe581&v=4"
+          src={this.state.data.avatar_url}
         />
         <Card.Body>
-          <Card.Text style={{ fontSize: "30px", color: "white" }}>
-            gowtham
+          <Card.Text style={{ fontSize: "18px", color: "white" }}>
+            {this.state.data.name}
           </Card.Text>
-          <Card.Text style={{ fontSize: "30px", color: "white" }}>
-            gowtham
+          <Card.Subtitle style={{ fontSize: "15px", color: "white" }}>
+            <AccessTimeIcon style={{fontSize: 'medium'}}/>
+            <nbsp></nbsp> {this.state.data.created_at}
+          </Card.Subtitle>
+          <Card.Text style={{fontSize: '15px', marginTop: '10px'}}>
+          <LocationOnIcon style={{fontSize: 'medium'}} />
+            <nbsp></nbsp>{this.state.data.location}
           </Card.Text>
-          <Card.Title style={{ color: "white" }}>Gowtham Munukutla</Card.Title>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Link href={this.state.data.url}  style={{fontSize: '20px', marginBottom: '10px'}}> Visit on Github </Card.Link>
         </Card.Body>
       </Card>
     );

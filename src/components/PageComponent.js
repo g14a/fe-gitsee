@@ -9,9 +9,9 @@ class PageComponent extends Component {
       <Container fluid>
         <Row style={{ minHeight: "100vh" }}>
           <Col
-            xs={4}
+            xs={3}
             style={{
-              backgroundColor: "#112232",
+              backgroundColor: "#121212",
               fontSize: "10vh",
               textAlign: "center",
               color: "white",
@@ -21,7 +21,7 @@ class PageComponent extends Component {
             <ProfileComponent />
           </Col>
           <Col
-            xs={8}
+            xs={9}
             style={{
               backgroundColor: "#121212",
               position: "absolute",
