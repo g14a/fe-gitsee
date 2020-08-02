@@ -6,28 +6,28 @@ class GridComponent extends Component {
   render() {
     return (
       <Row>
-        <Col xs={10} md={7}>
+        <Col xs={8} md={6}>
           <Card
             style={{
               minHeight: "45vh",
               marginTop: "4vh",
               backgroundColor: "#121212",
               color: "white",
-              marginRight: '60px',
+              marginRight: '10px',
             }}
           >
             <ChartComponent />
           </Card>
         </Col>
 
-        <Col xs={10} md={7}>
+        <Col xs={9} md={6}>
           <Card
             style={{
               minHeight: "45vh",
               marginTop: "4vh",
               backgroundColor: "#121212",
               color: "white",
-              marginRight: '60px'
+              marginRight: '10px'
             }}
           >
             <ChartComponent />

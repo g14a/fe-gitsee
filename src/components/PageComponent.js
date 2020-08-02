@@ -21,7 +21,7 @@ class PageComponent extends Component {
             <ProfileComponent />
           </Col>
           <Col
-            xs={9}
+            xs={9} md={9}
             style={{
               backgroundColor: "#121212",
               position: "absolute",

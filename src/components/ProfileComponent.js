@@ -14,7 +14,7 @@ class ProfileComponent extends Component {
   }
 
   componentDidMount() {
-    Axios.get("http://localhost:8000/user/reisub0")
+    Axios.get("http://localhost:8000/user/kovidgoyal")
       .then(response => {
         this.setState({
           data: response.data
@@ -48,7 +48,7 @@ class ProfileComponent extends Component {
             <LocationOnIcon style={{ fontSize: 'medium' }} />
           {" "}{this.state.data.location}
           </Card.Text>
-          <Card.Link href={this.state.data.url} style={{ fontSize: '20px', marginBottom: '10px' }}> Visit on Github </Card.Link>
+          <Card.Link href={this.state.data.url} style={{ fontSize: '18px'}}> Visit on Github </Card.Link>
         </Card.Body>
 
       </Card>

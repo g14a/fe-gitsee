@@ -3,20 +3,20 @@ import { Doughnut } from "react-chartjs-2";
 import Axios from 'axios';
 
 const state = {
-    labels: ['January', 'February', 'March',
-        'April', 'May'],
+    labels: ["Brainfuck", "C#", "CSS", "HTML", "Java", "Javascript"],
     datasets: [
         {
             backgroundColor: [
-                '#B21F00',
-                '#C9DE00',
-                '#2FDE00',
-                '#00A6B4',
-                '#6800B4'
+                "#4ecca3",
+                "#90b8f8",
+                "#90b8f8",
+                "#e47676",
+                "#a0204c",
+                "#90b8f8",
             ],
-            data: [65, 59, 80, 81, 56],
-            borderColor: '#121212',
-            borderWidth: 1,
+            data: [1, 1, 3, 3, 24, 8],
+            borderColor: "#121212",
+            borderWidth: 0,
         }
     ]
 }
@@ -26,37 +26,69 @@ class ChartComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            doughnutData: ''
+            doughnutData: {},
         }
     }
 
+    async GetColorSet(user) {
+        var request = "http://localhost:8000/user/" + user + "/colorSet"
+        return Axios.get(request)
+            .then(response => {
+                return response.data
+            })
+    }
+
     componentDidMount() {
-        Axios.get("http://localhost:8000/user/reisub0/RepoForks")
-        .then(response => {
-            Object.keys(response.data).map((k, v) => {
-                console.log(k, v)
+        Axios.get("http://localhost:8000/user/kovidgoyal/stats/PrimaryLanguages")
+            .then(response => {
+                var backgroundColors = []
                 var labels = []
-                labels.push(k)
+                var data = []
+                Object.keys(response.data).map((k, v) => {
+                    labels.push(k)
+                    data.push(response.data[k])
+                })
+
+                this.GetColorSet('kovidgoyal').
+                    then(colorSet => {
+                        Object.keys(colorSet).map((language, irr) => {
+                            backgroundColors.push(colorSet[language])
+                        })
+                    })
+
+                var dataSetItem = {
+                    backgroundColor: backgroundColors,
+                    data: data,
+                    borderColor: '#121212',
+                    borderWidth: 0
+                }
 
                 var datasets = []
-
-                this.state.doughnutData = {
-                    labels: labels
+                datasets.push(dataSetItem)
+                var doughnutState = {
+                    labels: labels,
+                    datasets: datasets
                 }
+
+                this.setState({
+                    doughnutData: doughnutState,
+                })
+
+                console.dir(doughnutState)
             })
-        })
     }
 
     render() {
         return (
             <Doughnut
-                data={state}
+                data={this.state.doughnutData}
+                //data={state}
                 options={{
                     title: {
                         display: true,
-                        text: 'Average Rainfall per month',
+                        text: 'Primary Languages',
                         fontSize: 18,
-                        fontColor: '#968da3',
+                        fontColor: '#fff',
                     },
                     legend: {
                         display: true,
