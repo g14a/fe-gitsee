@@ -39,7 +39,7 @@ class ChartComponent extends Component {
     }
 
     componentDidMount() {
-        Axios.get("http://localhost:8000/user/kovidgoyal/stats/PrimaryLanguages")
+        Axios.get("http://localhost:8000/user/reisub0/stats/PrimaryLanguages")
             .then(response => {
                 var backgroundColors = []
                 var labels = []
@@ -49,32 +49,31 @@ class ChartComponent extends Component {
                     data.push(response.data[k])
                 })
 
-                this.GetColorSet('kovidgoyal').
+                this.GetColorSet('reisub0').
                     then(colorSet => {
                         Object.keys(colorSet).map((language, irr) => {
                             backgroundColors.push(colorSet[language])
                         })
+
+                        var dataSetItem = {
+                            backgroundColor: backgroundColors,
+                            data: data,
+                            borderColor: '#121212',
+                            borderWidth: 0
+                        }
+
+                        var datasets = []
+                        datasets.push(dataSetItem)
+                        var doughnutState = {
+                            labels: labels,
+                            datasets: datasets
+                        }
+
+                        this.setState({
+                            doughnutData: doughnutState,
+                        })
+
                     })
-
-                var dataSetItem = {
-                    backgroundColor: backgroundColors,
-                    data: data,
-                    borderColor: '#121212',
-                    borderWidth: 0
-                }
-
-                var datasets = []
-                datasets.push(dataSetItem)
-                var doughnutState = {
-                    labels: labels,
-                    datasets: datasets
-                }
-
-                this.setState({
-                    doughnutData: doughnutState,
-                })
-
-                console.dir(doughnutState)
             })
     }
 
