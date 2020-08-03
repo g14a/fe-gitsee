@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Row, Col, Card } from "react-bootstrap";
-import ChartComponent from "./ChartComponent";
+import PrimaryLanguagesComponent from "./StatComponents/PrimaryLanguagesComponent";
+import RepoForksComponent from "./StatComponents/RepoForksComponent"
+import RepoStarsComponent from "./StatComponents/RepoStarsComponent"
+import RepoLanguagesComponent from "./StatComponents/RepoLanguagesComponent"
+import PrimaryLanguageStarsComponent from "./StatComponents/PrimaryLanguageStarsComponent"
 
 class GridComponent extends Component {
   render() {
@@ -9,6 +13,7 @@ class GridComponent extends Component {
         <Col xs={8} md={6}>
           <Card
             style={{
+              height: '45vh',
               minHeight: "45vh",
               marginTop: "4vh",
               backgroundColor: "#121212",
@@ -16,21 +21,67 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <ChartComponent />
+            <PrimaryLanguagesComponent />
           </Card>
         </Col>
 
-        <Col xs={9} md={6}>
+        <Col xs={8} md={6}>
           <Card
             style={{
+              height: '45vh',
               minHeight: "45vh",
               marginTop: "4vh",
               backgroundColor: "#121212",
               color: "white",
-              marginRight: '10px'
+              marginRight: '10px',
             }}
           >
-            <ChartComponent />
+            <RepoLanguagesComponent />
+          </Card>
+        </Col>
+
+        <Col xs={8} md={6}>
+          <Card
+            style={{
+              height: '45vh',
+              minHeight: "45vh",
+              marginTop: "4vh",
+              backgroundColor: "#121212",
+              color: "white",
+              marginRight: '10px',
+            }}
+          >
+            <PrimaryLanguageStarsComponent />
+          </Card>
+        </Col>
+
+        <Col xs={8} md={6}>
+          <Card
+            style={{
+              height: '45vh',
+              minHeight: "45vh",
+              marginTop: "4vh",
+              backgroundColor: "#121212",
+              color: "white",
+              marginRight: '10px',
+            }}
+          >
+            <RepoForksComponent />
+          </Card>
+        </Col>
+
+        <Col xs={8} md={6}>
+          <Card
+            style={{
+              height: '45vh',
+              minHeight: "45vh",
+              marginTop: "4vh",
+              backgroundColor: "#121212",
+              color: "white",
+              marginRight: '10px',
+            }}
+          >
+            <RepoStarsComponent />
           </Card>
         </Col>
 

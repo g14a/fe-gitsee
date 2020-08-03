@@ -2,24 +2,6 @@ import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
 import Axios from 'axios';
 
-const state = {
-    labels: ['January', 'February', 'March',
-        'April', 'May'],
-    datasets: [
-        {
-            backgroundColor: [
-                '#B21F00',
-                '#C9DE00',
-                '#2FDE00',
-                '#00A6B4',
-                '#6800B4'
-            ],
-            data: [65, 59, 80, 81, 56],
-            borderColor: '#121212',
-            borderWidth: 1,
-        }
-    ]
-}
 class ChartComponent extends Component {
 
     constructor(props) {
@@ -38,7 +20,7 @@ class ChartComponent extends Component {
     }
 
     componentDidMount() {
-        Axios.get("http://localhost:8000/user/probonopd/stats/PrimaryLanguages")
+        Axios.get("http://localhost:8000/user/anuraghazra/stats/RepoForks")
             .then(response => {
                 var backgroundColors = []
                 var labels = []
@@ -48,7 +30,7 @@ class ChartComponent extends Component {
                     data.push(response.data[k])
                 })
 
-                this.GetColorSet('probonopd').
+                this.GetColorSet('anuraghazra').
                     then(colorSet => {
                         Object.keys(colorSet).map((language, irr) => {
                             backgroundColors.push(colorSet[language])
@@ -72,27 +54,36 @@ class ChartComponent extends Component {
                             doughnutData: doughnutState,
                         })
 
+                        console.log(this.state.doughnutData)
+
                     })
             })
+
     }
 
     render() {
         return (
             <Doughnut
-                // data={this.state.doughnutData}
-                data = {state}
+                data={this.state.doughnutData}
                 options={{
+                    responsive: true,
                     title: {
                         display: true,
-                        text: 'Primary Languages',
+                        text: 'Forks per Repo',
                         fontSize: 18,
                         fontColor: '#fff',
                     },
                     legend: {
                         display: true,
-                        position: 'right'
+                        position: 'left',
+                        labels: {
+                            boxWidth: 20,
+                        },
+                        align: 'start',
                     },
                 }}
+                width={100}
+                height={65}
             />
         );
     }

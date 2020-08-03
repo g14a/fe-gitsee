@@ -4,10 +4,6 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import Axios from 'axios';
 
-const profile = {
-  
-}
-
 class ProfileComponent extends Component {
 
   constructor(props) {
@@ -28,9 +24,7 @@ class ProfileComponent extends Component {
   }
 
   componentDidMount() {
-    this.resetInitialState()
-
-    Axios.get("http://localhost:8000/user/probonopd")
+    Axios.get("http://localhost:8000/user/anuraghazra")
       .then(response => {
         this.setState({
           data: response.data
@@ -50,28 +44,24 @@ class ProfileComponent extends Component {
       >
         <Card.Img
           variant="top"
-          // src={this.state.data.avatar_url}
-          src = 'https://avatars3.githubusercontent.com/u/25099244?u=3ebb5d2dae3ab8cb100eb3f614398d7f4926102f&v=4'
+          src={this.state.data.avatar_url}
         />
         <Card.Body>
           <Card.Text style={{ fontSize: "18px", color: "white" }}>
-            {/* {this.state.data.name} */}
-            Govind KP
+            {this.state.data.username} 
           </Card.Text>
           <Card.Subtitle style={{ fontSize: "13px", color: "white" }}>
             <AccessTimeIcon style={{ fontSize: 'medium' }} />
-            {/* {" "} {this.state.data.created_at} */}
-            Joined 3 years ago
+            {" "} {this.state.data.created_at}
           </Card.Subtitle>
           <Card.Text style={{ fontSize: '13px', marginTop: '10px' }}>
             <LocationOnIcon style={{ fontSize: 'medium' }} />
-          {/* {" "}{this.state.data.location} */}
-          Chennai, India
+          {" "}{this.state.data.location}
           </Card.Text>
           <Card.Text style={{ fontSize: "14px", color: "white" }}>
             {this.state.data.followers} followers
           </Card.Text>
-          <Card.Link href={this.state.data.url} style={{ fontSize: '18px'}}> Visit on Github </Card.Link>
+          <Card.Link href={this.state.data.url} style={{ fontSize: '18px', display: 'block'}}> Visit on Github </Card.Link>
         </Card.Body>
 
       </Card>
