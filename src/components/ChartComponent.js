@@ -2,25 +2,6 @@ import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
 import Axios from 'axios';
 
-const state = {
-    labels: ["Brainfuck", "C#", "CSS", "HTML", "Java", "Javascript"],
-    datasets: [
-        {
-            backgroundColor: [
-                "#4ecca3",
-                "#90b8f8",
-                "#90b8f8",
-                "#e47676",
-                "#a0204c",
-                "#90b8f8",
-            ],
-            data: [1, 1, 3, 3, 24, 8],
-            borderColor: "#121212",
-            borderWidth: 0,
-        }
-    ]
-}
-
 class ChartComponent extends Component {
 
     constructor(props) {
@@ -39,7 +20,7 @@ class ChartComponent extends Component {
     }
 
     componentDidMount() {
-        Axios.get("http://localhost:8000/user/reisub0/stats/PrimaryLanguages")
+        Axios.get("http://localhost:8000/user/prologic/stats/PrimaryLanguages")
             .then(response => {
                 var backgroundColors = []
                 var labels = []
@@ -49,7 +30,7 @@ class ChartComponent extends Component {
                     data.push(response.data[k])
                 })
 
-                this.GetColorSet('reisub0').
+                this.GetColorSet('prologic').
                     then(colorSet => {
                         Object.keys(colorSet).map((language, irr) => {
                             backgroundColors.push(colorSet[language])
@@ -58,8 +39,8 @@ class ChartComponent extends Component {
                         var dataSetItem = {
                             backgroundColor: backgroundColors,
                             data: data,
-                            borderColor: '#121212',
-                            borderWidth: 0
+                            borderColor: '#808080',
+                            borderWidth: 1
                         }
 
                         var datasets = []
@@ -81,7 +62,6 @@ class ChartComponent extends Component {
         return (
             <Doughnut
                 data={this.state.doughnutData}
-                //data={state}
                 options={{
                     title: {
                         display: true,

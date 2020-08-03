@@ -14,7 +14,10 @@ class ProfileComponent extends Component {
   }
 
   componentDidMount() {
-    Axios.get("http://localhost:8000/user/kovidgoyal")
+    this.setState({
+      data: ''
+    })
+    Axios.get("http://localhost:8000/user/prologic")
       .then(response => {
         this.setState({
           data: response.data
@@ -26,7 +29,7 @@ class ProfileComponent extends Component {
     return (
       <Card
         style={{
-          width: "15rem",
+          width: "12rem",
           backgroundColor: "#121212",
           margin: "0 auto",
           marginTop: "10vh"
@@ -40,13 +43,16 @@ class ProfileComponent extends Component {
           <Card.Text style={{ fontSize: "18px", color: "white" }}>
             {this.state.data.name}
           </Card.Text>
-          <Card.Subtitle style={{ fontSize: "15px", color: "white" }}>
+          <Card.Subtitle style={{ fontSize: "13px", color: "white" }}>
             <AccessTimeIcon style={{ fontSize: 'medium' }} />
             {" "} {this.state.data.created_at}
           </Card.Subtitle>
           <Card.Text style={{ fontSize: '15px', marginTop: '10px' }}>
             <LocationOnIcon style={{ fontSize: 'medium' }} />
           {" "}{this.state.data.location}
+          </Card.Text>
+          <Card.Text style={{ fontSize: "14px", color: "white" }}>
+            {this.state.data.followers} followers
           </Card.Text>
           <Card.Link href={this.state.data.url} style={{ fontSize: '18px'}}> Visit on Github </Card.Link>
         </Card.Body>

@@ -21,7 +21,7 @@ class PageComponent extends Component {
             <ProfileComponent />
           </Col>
           <Col
-            xs={9} md={9}
+            xs={8} md={9}
             style={{
               backgroundColor: "#121212",
               position: "absolute",
@@ -29,6 +29,7 @@ class PageComponent extends Component {
               minHeight: "100vh",
               maxHeight: "100vh",
               right: "0",
+              width: '100%'
             }}
           >
             <GridComponent />
