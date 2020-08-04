@@ -17,7 +17,7 @@ class ProfileComponent extends Component {
 
 
   componentDidMount() {
-    Axios.get("http://localhost:8000/user/anuraghazra")
+    Axios.get(`http://localhost:8000/user/${this.props.username}`)
       .then(response => {
         this.setState({
           data: response.data

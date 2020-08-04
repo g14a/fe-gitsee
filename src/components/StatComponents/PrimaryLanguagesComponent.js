@@ -22,7 +22,7 @@ class ChartComponent extends Component {
     }
 
     componentDidMount() {
-        Axios.get("http://localhost:8000/user/anuraghazra/stats/PrimaryLanguages")
+        Axios.get(`http://localhost:8000/user/${this.props.username}/stats/PrimaryLanguages`)
             .then(response => {
                 var backgroundColors = []
                 var labels = []
@@ -32,7 +32,7 @@ class ChartComponent extends Component {
                     data.push(response.data[k])
                 })
 
-                this.GetColorSet('anuraghazra').
+                this.GetColorSet(this.props.username).
                     then(colorSet => {
                         Object.keys(colorSet).map((language, irr) => {
                             backgroundColors.push(colorSet[language])
