@@ -11,6 +11,8 @@ class ChartComponent extends Component {
         }
     }
 
+    // for username use {this.props.username}
+
     async GetColorSet(user) {
         var request = "http://localhost:8000/user/" + user + "/colorSet"
         return Axios.get(request)

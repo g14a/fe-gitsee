@@ -7,7 +7,7 @@ class PageComponent extends Component {
   constructor(props) {
     super(props);
   }
-  // props.username contains username
+  // this.props.username contains username
   render() {
     return (
       <Container fluid>
@@ -22,7 +22,7 @@ class PageComponent extends Component {
               minHeight: "100vh",
             }}
           >
-            <ProfileComponent />
+            <ProfileComponent username = {this.props.username}/>
           </Col>
           <Col
             xs={8} md={9}
@@ -36,7 +36,7 @@ class PageComponent extends Component {
               width: '100%'
             }}
           >
-            <GridComponent />
+            <GridComponent username = {this.props.username} />
           </Col>
         </Row>
       </Container>

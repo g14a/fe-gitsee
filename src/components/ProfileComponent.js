@@ -13,6 +13,9 @@ class ProfileComponent extends Component {
     }
   }
 
+  // for username use {this.props.username}
+
+
   componentDidMount() {
     Axios.get("http://localhost:8000/user/anuraghazra")
       .then(response => {

@@ -7,6 +7,9 @@ import RepoLanguagesComponent from "./StatComponents/RepoLanguagesComponent"
 import PrimaryLanguageStarsComponent from "./StatComponents/PrimaryLanguageStarsComponent"
 
 class GridComponent extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Row>
@@ -21,7 +24,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <PrimaryLanguagesComponent />
+            <PrimaryLanguagesComponent username = {this.props.username}/>
           </Card>
         </Col>
 
@@ -36,7 +39,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoLanguagesComponent />
+            <RepoLanguagesComponent username = {this.props.username}/>
           </Card>
         </Col>
 
@@ -51,7 +54,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <PrimaryLanguageStarsComponent />
+            <PrimaryLanguageStarsComponent username = {this.props.username}/>
           </Card>
         </Col>
 
@@ -66,7 +69,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoForksComponent />
+            <RepoForksComponent username = {this.props.username}/>
           </Card>
         </Col>
 
@@ -81,7 +84,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoStarsComponent />
+            <RepoStarsComponent username = {this.props.username}/>
           </Card>
         </Col>
 
