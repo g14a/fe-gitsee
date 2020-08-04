@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Axios from 'axios';
 import { store } from 'react-notifications-component';
+import { withRouter } from 'react-router-dom';
 import 'react-notifications-component/dist/theme.css'
 
 class UserSearchForm extends Component {
@@ -39,6 +40,7 @@ class UserSearchForm extends Component {
                     }
                 })
             })
+        this.props.history.push('/user');
     }
 
     render() {
@@ -64,4 +66,4 @@ class UserSearchForm extends Component {
     }
 }
 
-export default UserSearchForm;
+export default withRouter(UserSearchForm);
