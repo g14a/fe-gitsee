@@ -7,16 +7,12 @@ import 'react-notifications-component/dist/theme.css'
 class UserSearchForm extends Component {
 
     constructor(props) {
-        super(props)
-        this.state = {
-            username: '',
-            error: null
-        }
+        super(props);
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const username = this.state.username
+        const username = this.props.username
         console.log("username is", username)
 
         Axios.get("http://localhost:8000/user/" + username)
@@ -45,13 +41,6 @@ class UserSearchForm extends Component {
             })
     }
 
-    handleInputChange = (event) => {
-        event.preventDefault()
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
     render() {
         return (
             <div style={{ marginTop: '100px', maxHeight: '50%', maxWidth: '50%', marginLeft: '24%' }}>
@@ -63,7 +52,7 @@ class UserSearchForm extends Component {
                         label="username"
                         placeholder="ex: g14a"
                         name="username"
-                        onChange={this.handleInputChange}
+                        onChange={this.props.handleInputChange}
                         InputProps={{
                             style: { color: 'white' },
                         }}
