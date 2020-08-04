@@ -9,18 +9,8 @@ class ProfileComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: '',
+      data: {},
     }
-
-    this.initialState = {
-      data: ''
-    }
-  }
-
-  resetInitialState() {
-    this.setState({
-      state: this.initialState
-    })
   }
 
   componentDidMount() {
