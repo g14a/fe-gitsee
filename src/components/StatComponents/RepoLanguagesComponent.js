@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
 import Axios from 'axios';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class ChartComponent extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            doughnutData: {},
+            doughnutData: '',
+            loading: true,
         }
     }
 
@@ -52,19 +54,25 @@ class ChartComponent extends Component {
 
                         this.setState({
                             doughnutData: doughnutState,
+                            loading: false
                         })
 
                         console.log(this.state.doughnutData)
 
                     })
             })
-
     }
 
     render() {
-        return (
-            <Doughnut
-                data={this.state.doughnutData}
+        const { doughnutData, loading } = this.state
+
+        let doughnut;
+
+        if (loading) {
+            doughnut = <CircularProgress color="secondary" style={{ marginTop: '28%', marginLeft: '45%' }} />
+        } else {
+            doughnut = <Doughnut
+                data={doughnutData}
                 options={{
                     responsive: true,
                     title: {
@@ -85,6 +93,9 @@ class ChartComponent extends Component {
                 width={100}
                 height={65}
             />
+        }
+        return (
+            doughnut
         );
     }
 }

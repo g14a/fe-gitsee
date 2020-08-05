@@ -19,6 +19,7 @@ class UserSearchForm extends Component {
         Axios.get("http://localhost:8000/user/" + username)
             .then(response => {
                 console.log(response.data)
+                this.props.history.push('/user');
             })
             .catch(error => {
                 store.addNotification({
@@ -40,7 +41,6 @@ class UserSearchForm extends Component {
                     }
                 })
             })
-        this.props.history.push('/user');
     }
 
     render() {

@@ -13,9 +13,6 @@ class ProfileComponent extends Component {
     }
   }
 
-  // for username use {this.props.username}
-
-
   componentDidMount() {
     Axios.get(`http://localhost:8000/user/${this.props.username}`)
       .then(response => {
@@ -54,7 +51,7 @@ class ProfileComponent extends Component {
           <Card.Text style={{ fontSize: "14px", color: "white" }}>
             {this.state.data.followers} followers
           </Card.Text>
-          <Card.Link href={this.state.data.url} style={{ fontSize: '18px', display: 'block'}}> Visit on Github </Card.Link>
+          <Card.Link href={this.state.data.url} target="_blank" style={{ fontSize: '18px', display: 'block'}}> Visit on Github </Card.Link>
         </Card.Body>
 
       </Card>

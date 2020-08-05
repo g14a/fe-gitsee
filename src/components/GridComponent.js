@@ -5,14 +5,34 @@ import RepoForksComponent from "./StatComponents/RepoForksComponent"
 import RepoStarsComponent from "./StatComponents/RepoStarsComponent"
 import RepoLanguagesComponent from "./StatComponents/RepoLanguagesComponent"
 import PrimaryLanguageStarsComponent from "./StatComponents/PrimaryLanguageStarsComponent"
+import CalendarHeatmap from 'react-calendar-heatmap';
+import 'react-calendar-heatmap/dist/styles.css';
+import ReactTooltip from 'react-tooltip';
+
 
 class GridComponent extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <Row>
+        <h5 style={{ marginTop: '2%', marginLeft: '27%', color: '#fff' }}>Contributions in the last year</h5>
+        <Row style={{ width: '80%', height: '30%', marginLeft: '7%', marginTop: '2%', marginBottom: '5%' }}>
+          <CalendarHeatmap
+            startDate={new Date('2016-01-01')}
+            endDate={new Date('2016-12-30')}
+            values={[
+              { date: '2016-01-01', count: 12 },
+              { date: '2016-02-22', count: 122 },
+              { date: '2016-01-30', count: 38 },
+              // ...and so on
+            ]}
+          />
+          <ReactTooltip />
+        </Row>
+
         <Col xs={8} md={6}>
           <Card
             style={{
@@ -24,7 +44,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <PrimaryLanguagesComponent username = {this.props.username}/>
+            <PrimaryLanguagesComponent username={this.props.username} />
           </Card>
         </Col>
 
@@ -39,7 +59,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoLanguagesComponent username = {this.props.username}/>
+            <RepoLanguagesComponent username={this.props.username} />
           </Card>
         </Col>
 
@@ -54,7 +74,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <PrimaryLanguageStarsComponent username = {this.props.username}/>
+            <PrimaryLanguageStarsComponent username={this.props.username} />
           </Card>
         </Col>
 
@@ -69,14 +89,14 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoForksComponent username = {this.props.username}/>
+            <RepoForksComponent username={this.props.username} />
           </Card>
         </Col>
 
         <Col xs={8} md={6}>
           <Card
             style={{
-              height: '45vh',
+              height: '48vh',
               minHeight: "45vh",
               marginTop: "4vh",
               backgroundColor: "#121212",
@@ -84,7 +104,7 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoStarsComponent username = {this.props.username}/>
+            <RepoStarsComponent username={this.props.username} />
           </Card>
         </Col>
 
