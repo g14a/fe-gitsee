@@ -50,6 +50,7 @@ function Footer() {
       </p>
     </footer>
   );
-}
+} 
 
 export default App;
+  

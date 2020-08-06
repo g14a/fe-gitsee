@@ -57,8 +57,6 @@ class ChartComponent extends Component {
                             loading: false
                         })
 
-                        console.log(this.state.doughnutData)
-
                     })
             })
     }

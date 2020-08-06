@@ -34,8 +34,6 @@ class ChartComponent extends Component {
                     data.push(response.data[k])
                 })
 
-                console.log(response.data)
-
                 this.GetColorSet(this.props.username).
                     then(colorSet => {
                         Object.keys(colorSet).map((language, irr) => {
@@ -60,8 +58,6 @@ class ChartComponent extends Component {
                             doughnutData: doughnutState,
                             loading: false,
                         })
-
-                        console.log(this.state.doughnutData)
 
                     })
             })
