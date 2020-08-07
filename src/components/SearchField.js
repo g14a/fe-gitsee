@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { store } from 'react-notifications-component';
 import { withRouter } from 'react-router-dom';
 import 'react-notifications-component/dist/theme.css'
+import  * as URL from './Constants'
 
 class UserSearchForm extends Component {
 
@@ -11,7 +12,7 @@ class UserSearchForm extends Component {
         event.preventDefault()
         const username = this.props.username
 
-        Axios.get("http://localhost:8000/user/" + username)
+        Axios.get(URL.httpURL + username)
             .then(response => {
                 this.props.history.push('/user');
             })

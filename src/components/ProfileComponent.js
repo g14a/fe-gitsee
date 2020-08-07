@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import Axios from 'axios';
+import  * as URL from './Constants'
 
 class ProfileComponent extends Component {
 
@@ -14,7 +15,7 @@ class ProfileComponent extends Component {
   }
 
   componentDidMount() {
-    Axios.get(`http://localhost:8000/user/${this.props.username}`)
+    Axios.get(URL.httpURL + this.props.username)
       .then(response => {
         this.setState({
           data: response.data

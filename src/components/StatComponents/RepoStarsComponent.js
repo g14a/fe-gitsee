@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
 import Axios from 'axios';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import  * as URL from '../Constants'
 
 class ChartComponent extends Component {
 
@@ -14,7 +15,7 @@ class ChartComponent extends Component {
     }
 
     async GetColorSet(user) {
-        var request = "http://localhost:8000/user/" + user + "/colorSet"
+        var request = URL.httpURL + user + `/colorSet`
         return Axios.get(request)
             .then(response => {
                 return response.data
@@ -22,7 +23,7 @@ class ChartComponent extends Component {
     }
 
     componentDidMount() {
-        Axios.get(`http://localhost:8000/user/${this.props.username}/stats/RepoStars`)
+        Axios.get(URL.httpURL + this.props.username + `/stats/RepoStars`)
             .then(response => {
                 var backgroundColors = []
                 var labels = []
@@ -84,7 +85,7 @@ class ChartComponent extends Component {
                         display: true,
                         position: 'left',
                         labels: {
-                            boxWidth: 20,
+                            boxWidth: 15,
                         },
                         align: 'start',
                     },

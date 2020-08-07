@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./App.css";
 import UserSearchFrom from "./components/SearchField";
 import ReactNotification from "react-notifications-component";
@@ -17,7 +17,7 @@ class App extends Component {
   handleInputChange = (event) => {
     event.preventDefault()
     this.setState({
-        [event.target.name]: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -50,7 +50,6 @@ function Footer() {
       </p>
     </footer>
   );
-} 
+}
 
 export default App;
-  

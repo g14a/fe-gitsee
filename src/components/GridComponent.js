@@ -13,7 +13,7 @@ class GridComponent extends Component {
   render() {
     return (
       <Row>
-        <h5 style={{ marginTop: '2%', marginLeft: '27%', color: '#fff' }}>Contributions in the last year</h5>
+        <h5 style={{ marginTop: '2%', marginLeft: '30%', color: '#fff' }}>Contributions in the last year</h5>
         <Row style={{ width: '80%', height: '30%', marginLeft: '7%', marginTop: '2%', marginBottom: '5%' }}>
           <CalendarHeatMap username={this.props.username} />
           <ReactTooltip />

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 import Axios from 'axios'
+import  * as URL from '../Constants'
 
 class CalendarHeatMap extends Component {
     constructor(props) {
@@ -13,11 +14,11 @@ class CalendarHeatMap extends Component {
 
     componentDidMount() {
         var contributionArray = []
-        Axios.get(`http://localhost:8000/user/${this.props.username}/stats/Contributions`)
+        Axios.get(URL.httpURL + this.props.username + `/stats/Contributions`)
             .then(response => {
                 Object.keys(response.data).forEach((date, contributions) => {
                     console.log({ date: date, count: response.data[date] })
-                    contributionArray.push({ date: date, count: contributions })
+                    contributionArray.push({ date: date, count: response.data[date] })
                 })
 
                 this.setState({
