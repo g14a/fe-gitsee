@@ -9,9 +9,6 @@ import ReactTooltip from 'react-tooltip';
 import CalendarHeatMap from './StatComponents/CalendarHeatMap';
 
 class GridComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

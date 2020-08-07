@@ -4,9 +4,6 @@ import GridComponent from "./GridComponent";
 import { Container, Row, Col } from "react-bootstrap";
 
 class PageComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

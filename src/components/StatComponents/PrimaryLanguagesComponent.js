@@ -29,14 +29,14 @@ class ChartComponent extends Component {
                 var backgroundColors = []
                 var labels = []
                 var data = []
-                Object.keys(response.data).map((k, v) => {
+                Object.keys(response.data).forEach((k, v) => {
                     labels.push(k)
                     data.push(response.data[k])
                 })
 
-                this.GetColorSet(this.props.username).
-                    then(colorSet => {
-                        Object.keys(colorSet).map((language, irr) => {
+                this.GetColorSet(this.props.username)
+                    .then(colorSet => {
+                        Object.keys(colorSet).forEach((language, irr) => {
                             backgroundColors.push(colorSet[language])
                         })
 

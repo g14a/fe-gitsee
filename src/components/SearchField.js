@@ -7,10 +7,6 @@ import 'react-notifications-component/dist/theme.css'
 
 class UserSearchForm extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     handleSubmit = (event) => {
         event.preventDefault()
         const username = this.props.username
