@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Row, Col, Card } from "react-bootstrap";
-import PrimaryLanguagesComponent from "./StatComponents/PrimaryLanguagesComponent";
 import RepoForksComponent from "./StatComponents/RepoForksComponent"
 import RepoStarsComponent from "./StatComponents/RepoStarsComponent"
 import RepoLanguagesComponent from "./StatComponents/RepoLanguagesComponent"
@@ -16,21 +15,6 @@ class GridComponent extends Component {
         <Row style={{ width: '95%', height: '30%', marginLeft: '1%', marginTop: '2%', marginBottom: '5%' }}>
           <CalendarHeatMap username={this.props.username} />
         </Row>
-
-        <Col xs={8} md={6}>
-          <Card
-            style={{
-              height: '45vh',
-              minHeight: "45vh",
-              marginTop: "4vh",
-              backgroundColor: "#121212",
-              color: "white",
-              marginRight: '10px',
-            }}
-          >
-            <PrimaryLanguagesComponent username={this.props.username} />
-          </Card>
-        </Col>
 
         <Col xs={8} md={6}>
           <Card

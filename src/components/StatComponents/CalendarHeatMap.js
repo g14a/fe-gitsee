@@ -15,9 +15,14 @@ class CalendarHeatMap extends Component {
     }
 
     getTooltipDataAttrs = (value) => {
-        return {
-            'data-tip': `${value.count} contributions on ${value.date}`,
-        };
+        if (value != null) {
+            if (value.count == null) {
+                value.count = 0
+            }
+            return {
+                'data-tip': `${value.count} contributions on ${value.date}`,
+            };
+        }
     };
 
     componentDidMount() {
@@ -25,28 +30,27 @@ class CalendarHeatMap extends Component {
         Axios.get(URL.httpURL + this.props.username + `/stats/Contributions`)
             .then(response => {
                 Object.keys(response.data).forEach((date, contributions) => {
-                    console.log({ date: date, count: response.data[date] })
                     contributionArray.push({ date: date, count: response.data[date] })
                 })
 
                 this.setState({
                     heatMapData: contributionArray,
+                    startDate: contributionArray[0].date,
+                    endDate: contributionArray[contributionArray.length - 1].date
                 })
-
-                console.log(this.state.heatMapData)
             })
     }
 
     render() {
         var today = new Date()
-        var todayString = new Date().toISOString().split('T')[0];
-        var last = new Date(today.setFullYear(today.getFullYear() - 1)).toISOString().split('T')[0]
+        var endDate = new Date().toISOString().split('T')[0];
+        var startDate = new Date(today.setFullYear(today.getFullYear() - 1)).setDate(today.getDate() + 2)
 
         return (
             <div>
                 <CalendarHeatmap
-                    startDate={last}
-                    endDate={todayString}
+                    startDate={startDate}
+                    endDate={endDate}
                     values={this.state.heatMapData}
                     classForValue={(value) => {
                         if (value != null) {
