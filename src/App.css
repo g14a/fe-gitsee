@@ -42,3 +42,27 @@ body {
   }
 }
 
+
+.react-calendar-heatmap .color-gitlab-n {
+  fill: #000000;
+}
+
+.react-calendar-heatmap .color-gitlab-0 {
+  fill: #1575e2;
+}
+
+.react-calendar-heatmap .color-gitlab-1 {
+  fill: #204366;
+}
+
+.react-calendar-heatmap .color-gitlab-2 {
+  fill: #41668b;
+}
+
+.react-calendar-heatmap .color-gitlab-3 {
+  fill: #698bad;
+}
+
+.react-calendar-heatmap .color-gitlab-4 {
+  fill: #8fb2ca;
+}

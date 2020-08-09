@@ -5,7 +5,6 @@ import RepoForksComponent from "./StatComponents/RepoForksComponent"
 import RepoStarsComponent from "./StatComponents/RepoStarsComponent"
 import RepoLanguagesComponent from "./StatComponents/RepoLanguagesComponent"
 import PrimaryLanguageStarsComponent from "./StatComponents/PrimaryLanguageStarsComponent"
-import ReactTooltip from 'react-tooltip';
 import CalendarHeatMap from './StatComponents/CalendarHeatMap';
 
 class GridComponent extends Component {
@@ -13,10 +12,9 @@ class GridComponent extends Component {
   render() {
     return (
       <Row>
-        <h5 style={{ marginTop: '2%', marginLeft: '30%', color: '#fff' }}>Contributions in the last year</h5>
-        <Row style={{ width: '80%', height: '30%', marginLeft: '7%', marginTop: '2%', marginBottom: '5%' }}>
+        <h4 style={{ marginTop: '2%', marginLeft: '30%', color: '#fff' }}>Contributions in the last year</h4>
+        <Row style={{ width: '95%', height: '30%', marginLeft: '1%', marginTop: '2%', marginBottom: '5%' }}>
           <CalendarHeatMap username={this.props.username} />
-          <ReactTooltip />
         </Row>
 
         <Col xs={8} md={6}>
