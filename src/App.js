@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename='/search'>
           <Route exact path="/">
             <ReactNotification />
             <UserSearchFrom  handleInputChange = {this.handleInputChange} username = {this.state.username} />
