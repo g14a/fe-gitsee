@@ -1,1 +1,1 @@
-export const httpURL = `http://localhost:8000/user/`
+export const httpURL = `https://gitsee-14a.herokuapp.com/user/`
