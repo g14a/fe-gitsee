@@ -1,7 +1,8 @@
 {
+  "homepage": "https://g14a.github.io/fe-gitsee",
   "name": "fe-gitsee",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -11,6 +12,7 @@
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
     "env-cmd": "^10.1.0",
+    "gh-pages": "^3.1.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-calendar-heatmap": "^1.8.1",
@@ -23,8 +25,10 @@
     "react-transition-group": "^4.4.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "env-cmd -f .env react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
