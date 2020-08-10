@@ -27,12 +27,15 @@ class CalendarHeatMap extends Component {
 
     componentDidMount() {
         var contributionArray = []
+        console.log(URL.httpURL, "is url")
+        
         Axios.get(URL.httpURL + this.props.username + `/stats/Contributions`)
             .then(response => {
                 Object.keys(response.data).forEach((date, contributions) => {
                     contributionArray.push({ date: date, count: response.data[date] })
                 })
 
+                
                 this.setState({
                     heatMapData: contributionArray,
                     startDate: contributionArray[0].date,
