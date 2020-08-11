@@ -4,6 +4,9 @@ import UserSearchFrom from "./components/SearchField";
 import ReactNotification from "react-notifications-component";
 import PageComponent from "./components/PageComponent";
 import { Route, BrowserRouter } from "react-router-dom";
+import {Helmet} from "react-helmet";
+import {gitsee} from "./static/gitsee.png";
+
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +27,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Gitsee</title>
+          <link rel="icon" type="image/png" href={gitsee} sizes="16x16"/>
+        </Helmet>
         <BrowserRouter>
           <Route exact path="/">
             <ReactNotification />
@@ -31,7 +39,7 @@ class App extends Component {
             <Footer />
           </Route>
           <Route exact path="/user/:username" component={(userProps) => {
-            return <PageComponent username={userProps.match.params.username || this.state.username} />
+            return <PageComponent username={userProps.match.params.username} />
           }} >
           </Route>
         </BrowserRouter>

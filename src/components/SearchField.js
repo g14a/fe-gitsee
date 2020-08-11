@@ -12,8 +12,6 @@ class UserSearchForm extends Component {
         event.preventDefault()
         const username = this.props.username
 
-        console.log(URL.httpURL, "is url")
-
         Axios.get(URL.httpURL + username)
             .then(response => {
                 this.props.history.push(`/user/${this.props.username}`);

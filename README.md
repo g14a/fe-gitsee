@@ -1,12 +1,12 @@
-![](./static/gitsee.png)
+![](./src/static/gitsee.png)
 
 ## git-see
 
-#### Live on [https://gitsee-dev.netlify.app](https://gitsee-dev.netlify.app/)
+#### Live on [https://gitsee-dev.me/](https://gitsee-dev.me/)
 
-![](./static/torvalds1.png)
+![](./src/static/torvalds1.png)
 
-![](./static/torvalds2.png)
+![](./src/static/torvalds2.png)
 
 
 git-see is the backend service to visualize Github user and basic
