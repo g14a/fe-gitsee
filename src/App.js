@@ -31,7 +31,7 @@ class App extends Component {
             <Footer />
           </Route>
           <Route exact path="/user/:username" component={(userProps) => {
-            return <PageComponent username={userProps.match.params.username} />
+            return <PageComponent username={userProps.match.params.username || this.state.username} />
           }} >
           </Route>
         </BrowserRouter>

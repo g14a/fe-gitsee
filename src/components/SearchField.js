@@ -16,7 +16,7 @@ class UserSearchForm extends Component {
 
         Axios.get(URL.httpURL + username)
             .then(response => {
-                this.props.history.push('/user');
+                this.props.history.push(`/user/${this.props.username}`);
             })
             .catch(error => {
                 store.addNotification({
