@@ -27,11 +27,12 @@ class App extends Component {
         <BrowserRouter>
           <Route exact path="/">
             <ReactNotification />
-            <UserSearchFrom  handleInputChange = {this.handleInputChange} username = {this.state.username} />
+            <UserSearchFrom handleInputChange={this.handleInputChange} username={this.state.username} />
             <Footer />
           </Route>
-          <Route exact path="/user">
-            <PageComponent username = {this.state.username} />
+          <Route exact path="/user/:username" component={(userProps) => {
+            return <PageComponent username={userProps.match.params.username} />
+          }} >
           </Route>
         </BrowserRouter>
       </div>
