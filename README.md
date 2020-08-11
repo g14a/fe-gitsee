@@ -2,7 +2,7 @@
 
 ## git-see
 
-#### Live on [https://gitsee-dev.me/](https://gitsee-dev.me/)
+#### Live on [https://gitsee-dev.me](https://gitsee-dev.me/)
 
 ![](./src/static/torvalds1.png)
 
@@ -37,3 +37,7 @@ following  format:
 2. Make sure you have the Github token as  ```GHTOKEN=<your-token>``` in an ```.env``` file.
 3. You also need the minimum SSL certificates as we're interacting with Github's SSL. So we need to mount
 the user's ```~/.certs``` to the containers root ```/etc/ssl/certs``` directory.
+
+
+#### A big hug
+To [Gowtham Gottimukkala](https://github.com/GowthamGottimukkala) for assisting me with React JS.
