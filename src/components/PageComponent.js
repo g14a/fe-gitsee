@@ -4,37 +4,15 @@ import GridComponent from "./GridComponent";
 import { Container, Row, Col } from "react-bootstrap";
 
 class PageComponent extends Component {
-
   render() {
     return (
       <Container fluid>
-
         <Row style={{ minHeight: "100vh" }}>
-          <Col
-            xs={3}
-            style={{
-              backgroundColor: "#121212",
-              fontSize: "10vh",
-              textAlign: "center",
-              color: "white",
-              minHeight: "100vh",
-            }}
-          >
+          <Col xs={12} lg={3} className="profilecard">
             <ProfileComponent username={this.props.username} />
           </Col>
 
-          <Col
-            xs={8} md={9}
-            style={{
-              backgroundColor: "#121212",
-              position: "absolute",
-              overflowY: "scroll",
-              minHeight: "100vh",
-              maxHeight: "100vh",
-              right: "0",
-              width: '100%'
-            }}
-          >
+          <Col xs={12} md={9} className="gridcomponent">
             <GridComponent username={this.props.username} />
           </Col>
         </Row>

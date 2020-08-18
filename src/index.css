@@ -9,3 +9,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+@media screen and (min-width: 992px) {
+  .profilecard {
+    background-color: #121212;
+    font-size: 10vh;
+    text-align: center;
+    color: white;
+    min-height: 100vh;
+  }
+  .gridcomponent{
+    background-color: #121212;
+    position: absolute;
+    overflow-y: scroll;
+    min-height: 100vh;
+    max-height: 100vh;
+    right: 0;
+    width: 100%;
+  }
+   .heatmap{
+    width: 95%;
+    height: 30%;
+    margin-left: 1%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+  }
+}

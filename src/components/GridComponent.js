@@ -5,14 +5,15 @@ import RepoStarsComponent from "./StatComponents/RepoStarsComponent"
 import RepoLanguagesComponent from "./StatComponents/RepoLanguagesComponent"
 import PrimaryLanguageStarsComponent from "./StatComponents/PrimaryLanguageStarsComponent"
 import CalendarHeatMap from './StatComponents/CalendarHeatMap';
+import MediaQuery from 'react-responsive';
 
 class GridComponent extends Component {
 
   render() {
     return (
-      <Row>
-        <h4 style={{ marginTop: '2%', marginLeft: '30%', color: '#fff' }}>Contributions in the last year</h4>
-        <Row style={{ width: '95%', height: '30%', marginLeft: '1%', marginTop: '2%', marginBottom: '5%' }}>
+      <Row style={{justifyContent:"center",color:"white",padding:"30px 30px "}}> 
+        <h4 className="heatmap-title">Contributions in the last year</h4>
+        <Row className="heatmap">
           <CalendarHeatMap username={this.props.username} />
         </Row>
 
@@ -27,7 +28,12 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoLanguagesComponent username={this.props.username} />
+            <MediaQuery minDeviceWidth={992}>
+              <RepoLanguagesComponent username={this.props.username} legendPosition="left"/>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={991}>
+              <RepoLanguagesComponent username={this.props.username} legendPosition="top"/>
+            </MediaQuery>
           </Card>
         </Col>
 
@@ -42,7 +48,12 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <PrimaryLanguageStarsComponent username={this.props.username} />
+            <MediaQuery minDeviceWidth={992}>
+              <PrimaryLanguageStarsComponent username={this.props.username} legendPosition="left"/>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={991}>
+              <PrimaryLanguageStarsComponent username={this.props.username} legendPosition="top"/>
+            </MediaQuery>
           </Card>
         </Col>
 
@@ -57,7 +68,12 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoForksComponent username={this.props.username} />
+            <MediaQuery minDeviceWidth={992}>
+              <RepoForksComponent username={this.props.username} legendPosition="left"/>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={991}>
+              <RepoForksComponent username={this.props.username} legendPosition="top"/>
+            </MediaQuery>
           </Card>
         </Col>
 
@@ -72,7 +88,12 @@ class GridComponent extends Component {
               marginRight: '10px',
             }}
           >
-            <RepoStarsComponent username={this.props.username} />
+            <MediaQuery minDeviceWidth={992}>
+              <RepoStarsComponent username={this.props.username} legendPosition="left"/>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={991}>
+              <RepoStarsComponent username={this.props.username} legendPosition="top"/>
+            </MediaQuery>
           </Card>
         </Col>
 

@@ -64,7 +64,6 @@ class ChartComponent extends Component {
 
     render() {
         const { doughnutData, loading } = this.state
-
         let doughnut;
 
         if (loading) {
@@ -74,6 +73,7 @@ class ChartComponent extends Component {
                 data={doughnutData}
                 options={{
                     responsive: true,
+                    maintainAspectRatio:false,
                     title: {
                         display: true,
                         text: 'Repos per Language',
@@ -82,7 +82,7 @@ class ChartComponent extends Component {
                     },
                     legend: {
                         display: true,
-                        position: 'left',
+                        position: this.props.legendPosition,
                         labels: {
                             boxWidth: 15,
                         },

@@ -75,6 +75,7 @@ class ChartComponent extends Component {
                 data={doughnutData}
                 options={{
                     responsive: true,
+                    maintainAspectRatio: false,
                     title: {
                         display: true,
                         text: 'Forks per Repo',
@@ -83,7 +84,7 @@ class ChartComponent extends Component {
                     },
                     legend: {
                         display: true,
-                        position: 'left',
+                        position: this.props.legendPosition,
                         labels: {
                             boxWidth: 15,
                         },
